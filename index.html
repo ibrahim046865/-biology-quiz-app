@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <meta property="og:title" content="Biology Quiz – Test Your Brainpower 🧠🧬" />
+    <meta property="og:description" content="Answer fun biology questions, get instant feedback, and see your final score. Perfect for students and quiz lovers!" />
+    <meta property="og:image" content="">
+    <meta property="og:type" content="website" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <title>Biology Quiz Application</title>
+</head>
+<body>
+    <main>
+        <div id="quiz-container">
+            <div class="quiz-header">
+                <h1>Biology Quiz</h1>
+            </div>
+            <div id="welcome-message">
+                <h4>“Welcome, <span>Brilliant Mind</span>🧠 <br>
+Ready to challenge your biology knowledge? <br>
+Answer fun, interactive questions, get instant feedback,
+and see how sharp your mind really is at the end!”</h4>
+            </div>
+            <div id="question-container" class="hide">
+                <div id="question">Question text</div>
+                <div id="answer-buttons" class="btn-container flex"></div>
+            </div>
+            <div id="controls">
+                <button id="start-btn" class="start-btn btn">Start Quiz</button>
+                <button id="next-btn" class="next-btn btn hide">Next Question</button> 
+            </div>
+            <div id="score-container" class="hide">
+                <h3>Your Score:</h3>
+                <h2 id="score">0 / 10 Correct</h2>
+                <h4 id="percentage">80% Score</h4>
+            </div> 
+            <div id="congMsg" class="hide">
+                <p><span id="greet">Great Job! &#127881</span>You did awesome!</p>
+
+            </div>
+            <div id="restart-control" class="restart-view-btn flex hide">
+                <button id="restart-btn" class="restart-btn btn">Restart Quiz</button>
+            </div>
+            <div id="review"></div>
+            <div id="current" class="flex hide">
+                <h4>Score: <span id="score-display" class="count">0 / 10</span></h4>
+                <h4>Question: <span id="question-number" class="count">1 of 10</span></h4>
+            </div>  
+        </div>
+        
+    </main>
+<script src="index.js"></script>
+</body>
+</html>
