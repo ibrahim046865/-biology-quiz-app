@@ -20,53 +20,53 @@ nextButton.disabled = true;
 const questions = [
     {
     question: "If a DNA strand has a base sequence TCA, its complementary strand must be?",
-    choices: ["A. ATG", "B. TAG", "C. GAT", "D. AGT"],
-    answer: "D. AGT"
+    choices: ["ATG", "TAG", "GAT", "AGT"],
+    answer: "AGT"
   },
   {
     question: "The most abdundant group of organisms in the animal kingdom?",
-    choices: ["A. Mammals", "B. Aves", "C. Insecta", "D. Annelida"],
-    answer: "C. Insecta"
+    choices: ["Mammals", "Aves", "Insecta", "Annelida"],
+    answer: "Insecta"
   },
   {
     question: "How many chromosomes are in a human cell?",
-    choices: ["A. 23", "B. 46", "C. 44", "D. 92"],
-    answer: "B. 46"
+    choices: ["23", "46", "44", "92"],
+    answer: "46"
   },
   {
     question: "Which blood group is the universal donor?",
-    choices: ["A. A", "B. B", "C. AB", "D. O"],
-    answer: "D. O"
+    choices: ["A", "B", "AB", "O"],
+    answer: "O"
   },
   {
     question: "What pigment is responsible for photosynthesis?",
-    choices: ["A. Carotene", "B. Xanthophyll", "C. Chlorophyll", "D. Melanin"],
-    answer: "C. Chlorophyll"
+    choices: ["Carotene", "Xanthophyll", "Chlorophyll", "Melanin"],
+    answer: "Chlorophyll"
   },
   {
     question: "How many chambers does the human heart have?",
-    choices: ["A. Two", "B. Three", "C. Four", "D. Five"],
-    answer: "C. Four"
+    choices: ["Two", "Three", "Four", "Five"],
+    answer: "Four"
   },
   {
     question: "Which system controls body activities?",
-    choices: ["A. Digestive", "B. Skeletal", "C. Nervous", "D. Respiratory"],
-    answer: "C. Nervous"
+    choices: ["Digestive", "Skeletal", "Nervous", "Respiratory"],
+    answer: "Nervous"
   },
   {
     question: "Which blood cells fight infections?",
-    choices: ["A. Red blood cells", "B. Platelets", "C. White blood cells", "D. Plasma"],
-    answer: "C. White blood cells"
+    choices: ["Red blood cells", "Platelets", "White blood cells", "Plasma"],
+    answer: "White blood cells"
   },
   {
     question: "Which of the following produces both hormones and enzymes?",
-    choices: ["A. Ileum", "B. Pancreas", "C. Gall bladder", "D. Kidney"],
-    answer: "B. Pancreas"
+    choices: ["Ileum", "Pancreas", "Gall bladder", "Kidney"],
+    answer: "Pancreas"
   },
   {
     question: "What is the largest organ in the human body?",
-    choices: ["A. Liver", "B. Skin", "C. Lungs", "D. Heart"],
-    answer: "B. Skin"
+    choices: ["Liver", "Skin", "Lungs", "Heart"],
+    answer: "Skin"
   }
 ];
 
@@ -172,5 +172,3 @@ startButton.addEventListener('click', () => {
 });
 nextButton.addEventListener('click', getResult);
 restartBtn.addEventListener('click', reset);
-
-
