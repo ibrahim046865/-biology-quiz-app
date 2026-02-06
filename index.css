@@ -169,7 +169,16 @@ body {
 }
 #greet {
   color: var(--biology-green);
-};
+}
+
+footer {
+    text-align: center;
+    padding: 8px;
+    color: gainsboro;
+    margin-top: 200px;
+    font-size: 0.9rem;
+    width: 100%;
+}
 
 @keyframes fadeUp {
   from {
