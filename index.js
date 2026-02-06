@@ -61,7 +61,7 @@ const questions = [
   {
     question: "Which of the following produces both hormones and enzymes?",
     choices: ["A. Ileum", "B. Pancreas", "C. Gall bladder", "D. Kidney"],
-    answer: "D. Pancreas"
+    answer: "B. Pancreas"
   },
   {
     question: "What is the largest organ in the human body?",
