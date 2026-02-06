@@ -240,4 +240,29 @@ body {
   animation: slideUp 0.4s ease-out forwards;
 }
 
+@media (max-width: 768px) {
+  #quiz-container {
+    width: 90%;
+  }
+  .btn-container {
+    gap: 12px;
+  }
+  .btn {
+    font-size: 0.9em;
+    padding: 8px;
+  }
+  .btn-container {
+    flex-wrap: wrap;
+  }
+  #score-container {
+    max-width: 100%;
+  }
+  #welcome-message {
+    padding: 15px;
+  }
+  #welcome-message h4 {
+    font-size: 1em;
+  }
+}
+
 

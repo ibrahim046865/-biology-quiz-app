@@ -19,14 +19,14 @@ nextButton.disabled = true;
 
 const questions = [
     {
-    question: "What is the basic unit of life?",
-    choices: ["A. Tissue", "B. Cell", "C. Organ", "D. System"],
-    answer: "B. Cell"
+    question: "If a DNA strand has a base sequence TCA, its complementary strand must be?",
+    choices: ["A. ATG", "B. TAG", "C. GAT", "D. AGT"],
+    answer: "D. AGT"
   },
   {
-    question: "Which organelle is the powerhouse of the cell?",
-    choices: ["A. Nucleus", "B. Ribosome", "C. Mitochondria", "D. Lysosome"],
-    answer: "C. Mitochondria"
+    question: "The most abdundant group of organisms in the animal kingdom?",
+    choices: ["A. Mammals", "B. Aves", "C. Insecta", "D. Annelida"],
+    answer: "C. Insecta"
   },
   {
     question: "How many chromosomes are in a human cell?",
@@ -59,8 +59,8 @@ const questions = [
     answer: "C. White blood cells"
   },
   {
-    question: "Which vitamin is produced in the skin by sunlight?",
-    choices: ["A. Vitamin A", "B. Vitamin B", "C. Vitamin C", "D. Vitamin D"],
+    question: "Which of the following produces both hormones and enzymes?",
+    choices: ["A. Ileum", "B. Pancreas", "C. Gall bladder", "D. Kidney"],
     answer: "D. Vitamin D"
   },
   {
@@ -69,6 +69,13 @@ const questions = [
     answer: "B. Skin"
   }
 ];
+
+function shuffleArray(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+}
 
 function showQuiz() {
     welcomeMsg.classList.add('hide');
@@ -83,6 +90,7 @@ function getQuestions() {
   nextButton.disabled = true;
     answerButtonsElement.innerHTML = "";
     questionElement.innerHTML = questions[currentIndex].question;
+    shuffleArray(questions[currentIndex].choices);
     questions[currentIndex].choices.forEach(choice => {
         const button = document.createElement('button');
         button.innerHTML = choice;
@@ -152,11 +160,13 @@ function reset() {
     congMsg.classList.add('hide');
     controlButtons.classList.add('hide');
     quizHeader.innerHTML = 'Biology Quiz';
+    shuffleArray(questions);
     showQuiz();
     getQuestions();
 };
 
 startButton.addEventListener('click', () => {
+    shuffleArray(questions);
     showQuiz();
     getQuestions();
 });
