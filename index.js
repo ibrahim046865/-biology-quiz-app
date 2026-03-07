@@ -18,7 +18,7 @@ nextButton.disabled = true;
 
 
 const questions = [
-    {
+  {
     question: "Which process is responsible for the movement of manufactured food in plants?",
     choices: ["Transpiration", "Photosynthesis", "Translocation", "Respiration"],
     answer: "Translocation"
@@ -636,97 +636,100 @@ function shuffleArray(array) {
 }
 
 function showQuiz() {
-    welcomeMsg.classList.add('hide');
-    questBox.classList.remove('hide'); 
-    currentDiv.classList.remove('hide');
-    startButton.classList.add('hide'); 
+  welcomeMsg.classList.add('hide');
+  questBox.classList.remove('hide');
+  currentDiv.classList.remove('hide');
+  startButton.classList.add('hide');
+  scoreDisplay.textContent = `0 / ${questions.length}`;
+  questionNumberDisplay.textContent = `1 of ${questions.length}`;
+
 };
 
 let currentIndex = 0;
 
 function getQuestions() {
   nextButton.disabled = true;
-    answerButtonsElement.innerHTML = "";
-    questionElement.innerHTML = questions[currentIndex].question;
-    shuffleArray(questions[currentIndex].choices);
-    questions[currentIndex].choices.forEach(choice => {
-        const button = document.createElement('button');
-        button.innerHTML = choice;
-        button.value = choice;
-        button.classList.add('btn');
-        answerButtonsElement.appendChild(button);
-        button.addEventListener("click",  () => {
-            Array.from(answerButtonsElement.children).forEach(btn => btn.disabled = true);
-            nextButton.disabled = false;
-            if (button.value === questions[currentIndex].answer) {
-                button.classList.add('green');
-                button.innerHTML = `${button.value} <span>&#10004;</span> `;
-                let currentScore = parseInt(scoreDisplay.textContent) || 0;
-                scoreDisplay.textContent = `${currentScore + 1} / ${questions.length}`;
-            }
-            else if (button.value !== questions[currentIndex].answer) { 
-                button.classList.add('red');
-                button.innerHTML = `${button.value} <span>&#10008;</span> `;
-                Array.from(answerButtonsElement.children).forEach(btn => {
-                    if (btn.value === questions[currentIndex].answer) {
-                        btn.classList.add('green');
-                        btn.innerHTML = `${btn.value} <span>&#10004;</span> `;
-                    }
-            });
-            }
-            nextButton.classList.remove('hide');
-        })
-    });
+  answerButtonsElement.innerHTML = "";
+  questionElement.innerHTML = questions[currentIndex].question;
+  shuffleArray(questions[currentIndex].choices);
+  questions[currentIndex].choices.forEach(choice => {
+    const button = document.createElement('button');
+    button.innerHTML = choice;
+    button.value = choice;
+    button.classList.add('btn');
+    answerButtonsElement.appendChild(button);
+    button.addEventListener("click", () => {
+      Array.from(answerButtonsElement.children).forEach(btn => btn.disabled = true);
+      nextButton.disabled = false;
+      if (button.value === questions[currentIndex].answer) {
+        button.classList.add('green');
+        button.innerHTML = `${button.value} <span>&#10004;</span> `;
+        let currentScore = parseInt(scoreDisplay.textContent) || 0;
+        scoreDisplay.textContent = `${currentScore + 1} / ${questions.length}`;
+      }
+      else if (button.value !== questions[currentIndex].answer) {
+        button.classList.add('red');
+        button.innerHTML = `${button.value} <span>&#10008;</span> `;
+        Array.from(answerButtonsElement.children).forEach(btn => {
+          if (btn.value === questions[currentIndex].answer) {
+            btn.classList.add('green');
+            btn.innerHTML = `${btn.value} <span>&#10004;</span> `;
+          }
+        });
+      }
+      nextButton.classList.remove('hide');
+    })
+  });
 };
 
 function getResult() {
-    currentIndex++;
-    if (currentIndex < questions.length) {
-        questionNumberDisplay.textContent = `${currentIndex + 1} of ${questions.length}`;
-        getQuestions();
-    } 
-    else if (currentIndex === questions.length) {
-        quizHeader.innerHTML = 'Quiz Completed!'
-        questBox.classList.add('hide');
-        nextButton.classList.remove('hide');
-        scoreContainer.classList.remove('hide');
-        congMsg.classList.remove('hide');
-        controlButtons.classList.remove('hide');
-        nextButton.classList.add('hide');
-        currentDiv.classList.add('hide');
+  currentIndex++;
+  if (currentIndex < questions.length) {
+    questionNumberDisplay.textContent = `${currentIndex + 1} of ${questions.length}`;
+    getQuestions();
+  }
+  else if (currentIndex === questions.length) {
+    quizHeader.innerHTML = 'Quiz Completed!'
+    questBox.classList.add('hide');
+    nextButton.classList.remove('hide');
+    scoreContainer.classList.remove('hide');
+    congMsg.classList.remove('hide');
+    controlButtons.classList.remove('hide');
+    nextButton.classList.add('hide');
+    currentDiv.classList.add('hide');
 
-        let totalScore = parseInt(scoreDisplay.textContent);
-        let percent = (totalScore / questions.length) * 100;
-        score.textContent = `${totalScore} / ${questions.length} Correct`;
-        percentage.textContent = `${percent}% Score`;
+    let totalScore = parseInt(scoreDisplay.textContent);
+    let percent = (totalScore / questions.length) * 100;
+    score.textContent = `${totalScore} / ${questions.length} Correct`;
+    percentage.textContent = `${percent}% Score`;
 
-        if (percent >= 80) {
-            congMsg.innerHTML = "<span style='color: var(--biology-green);'>Congratulations!</span> &#127881 You're a genius!";
-        } else if (percent >= 60) {
-            congMsg.innerHTML = "<span style='color: var(--biology-green);'>Good job!</span> &#128293 You're doing well!";
-        } else {
-            congMsg.innerHTML = "Keep practicing! You'll get better!";
-        }
+    if (percent >= 80) {
+      congMsg.innerHTML = "<span style='color: var(--biology-green);'>Congratulations!</span> &#127881 You're a genius!";
+    } else if (percent >= 60) {
+      congMsg.innerHTML = "<span style='color: var(--biology-green);'>Good job!</span> &#128293 You're doing well!";
+    } else {
+      congMsg.innerHTML = "Keep practicing! You'll get better!";
     }
+  }
 };
 
 function reset() {
-    currentIndex = 0;
-    scoreDisplay.textContent = `0 / ${questions.length}`;
-    questionNumberDisplay.textContent = `1 of ${questions.length}`; 
-    scoreContainer.classList.add('hide');
-    congMsg.classList.add('hide');
-    controlButtons.classList.add('hide');
-    quizHeader.innerHTML = 'Biology Quiz';
-    shuffleArray(questions);
-    showQuiz();
-    getQuestions();
+  currentIndex = 0;
+  scoreDisplay.textContent = `0 / ${questions.length}`;
+  questionNumberDisplay.textContent = `1 of ${questions.length}`;
+  scoreContainer.classList.add('hide');
+  congMsg.classList.add('hide');
+  controlButtons.classList.add('hide');
+  quizHeader.innerHTML = 'Biology Quiz';
+  shuffleArray(questions);
+  showQuiz();
+  getQuestions();
 };
 
 startButton.addEventListener('click', () => {
-    shuffleArray(questions);
-    showQuiz();
-    getQuestions();
+  shuffleArray(questions);
+  showQuiz();
+  getQuestions();
 });
 nextButton.addEventListener('click', getResult);
 restartBtn.addEventListener('click', reset);
